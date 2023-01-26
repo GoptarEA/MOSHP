@@ -11,21 +11,83 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://api-maps.yandex.ru/2.1/?apikey=04fcaae6-825a-469a-86fe-eabc5755edd4&lang=ru_RU" type="text/javascript">
     </script>
-    <script src="/static/script/script.js" type="text/javascript"></script>
+    <script src="/static/script/script.js" type="text/javascript" defer></script>
+    <script src="/static/script/provider.js" type="text/javascript" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>$SCRIPT_ROOT = {{ request.script_root|tojson|safe }}; </script>
 </head>
 <body>
-    <header>
+    <header id="header">
         <div class="container">
             <div class="nav">
-                <img class="schoollogo" src="/static/images/schoollogo.png">
-                {% if checklogin %}
-                    <button name="open-register-win" class="emailbutton">{{login}}</button>
+                <img class="schoollogo" src="/static/images/schoollogo.png" alt="логотип школы">
+                {% if g.user %}
+                    <button name="open-register-win" class="emailbutton">Добро пожаловать, <br>{{g.user.login}}</button>
                 {% else %}
                 <a href="/registration" class="regbutton">Регистрация</a>
-                <img class="loginimage" src="/static/images/loginimage.jpg">
+                <img class="loginimage" src="/static/images/loginimage.jpg" alt="логин">
                 <a href="/login" class="loginbutton">Войти</a>
                 {% endif %}
             </div>
+            {% if g.user %}
+                <script>document.getElementById('header').style.height = "800px"</script>
+                {% for key, value in option.items() %}
+                    <div id="{{key}}" class="{{key}}">
+                        <h1 class="lk_block_title">Личный кабинет</h1>
+                        <div class="{{value[3]}}">
+                            <h1 class="menu_block_title">{{value[0]}}</h1>
+                            <a href={{value[5]}}><button class="go_btn">{{value[1]}}</button></a>
+                            <div class="btn_container">
+                                <button id="lk_left_btn_{{value[4]}}" class="lk_left_btn"></button>
+                                <button id="lk_right_btn_{{value[4]}}" class="lk_right_btn"></button>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                <script>
+                    document.getElementById('lk_right_btn_1').onclick = function () {
+                        let first = window.getComputedStyle(document.getElementById('lk_block_1')).zIndex;
+                        let second = window.getComputedStyle(document.getElementById('lk_block_2')).zIndex;
+                        console.log(first);
+                        console.log(second);
+                        document.getElementById('lk_block_1').style.zIndex = second;
+                        document.getElementById('lk_block_2').style.zIndex = first;
+                    }
+                     document.getElementById('lk_left_btn_1').onclick = function () {
+                        let first = window.getComputedStyle(document.getElementById('lk_block_1')).zIndex;
+                        let second = window.getComputedStyle(document.getElementById('lk_block_2')).zIndex;
+                        document.getElementById('lk_block_1').style.zIndex = second;
+                        document.getElementById('lk_block_2').style.zIndex = first;
+                    }
+
+                    document.getElementById('lk_right_btn_2').onclick = function () {
+                        let first = window.getComputedStyle(document.getElementById('lk_block_1')).zIndex;
+                        let second = window.getComputedStyle(document.getElementById('lk_block_2')).zIndex;
+                        console.log(first);
+                        console.log(second);
+                        document.getElementById('lk_block_1').style.zIndex = second;
+                        document.getElementById('lk_block_2').style.zIndex = first;
+                    }
+                     document.getElementById('lk_left_btn_2').onclick = function () {
+                        let first = window.getComputedStyle(document.getElementById('lk_block_1')).zIndex;
+                        let second = window.getComputedStyle(document.getElementById('lk_block_2')).zIndex;
+                        document.getElementById('lk_block_1').style.zIndex = second;
+                        document.getElementById('lk_block_2').style.zIndex = first;
+                    }
+                </script>
+<!--                 <div class="lk">-->
+<!--                    <h1 class="lktext">Личный кабинет</h1>-->
+<!--                    <form class="lkform">-->
+<!--                        <input class="forminput" type="text" placeholder="{{g.user.name}}">-->
+<!--                        <input class="forminput" type="text" placeholder="{{g.user.name}}">-->
+<!--                        <input class="forminput" type="email" placeholder="{{g.user.email}}">-->
+<!--                        <input class="forminput" type="password" placeholder="Новый пароль">-->
+<!--                        <input class="forminput" type="password" placeholder="Повторите пароль">-->
+<!--                        <button class="savechanges">Сохранить изменения</button>-->
+<!--                        <button class="delete">Удалить аккаунт</button>-->
+<!--                    </form>-->
+<!--                </div>-->
+            {% else %}
             <div class="first">
                 <h1>Интерактивная карта ВДНХ</h1>
                 <div class="part">
@@ -36,30 +98,41 @@
                             полезно для своего дальнейшего развития в сфере ИТ.
                         </p>
                     </div>
-                    <img class="mainimage" src="/static/images/mainpage.jpg">
-                    </div>
+                    <img class="mainimage" id="mainimage" src="/static/images/1.jpg" alt="фото">
+<!--                    <img id="imglisting" src="/static/images/imglisting.png" alt="пролистывание">-->
+                    <script>
+                        let k = 2;
+                        document.getElementById("mainimage").onclick = function () {
+                            document.getElementById("mainimage").src = "/static/images/" + String(k % 7 + 1) + ".jpg";
+                            k += 1;
+                        }
+                    </script>
+
+                </div>
                 <button class="registration">Регистрация</button>
                 <button class="login">Войти</button>
             </div>
+            {% endif %}
         </div>
     </header>
-
     <section>
         <div class="container3"></div>
         <div class="container2">
+
             <h1>Выбрать объекты на карте</h1>
-            <ul>
-                <li id="search">Поиск</li>
-                <li id="newRoute">Построить маршрут</li>
-                <li>Достопримечательности на карте ВДНХ</li>
-                <li id="firstRoute">Маршрут 1: Метро ВДНХ - Главный вход ВДНХ</li>
-                <li>Маршрут 2: Главный вход ВДНХ - Каток ВДНХ</li>
-                <li>Маршрут 3: Главный вход ВДНХ - Павильон Космос</li>
+            <ul class="menupoints" id="menupoints">
+                <li id="search"><p class="mainmenubtn">Поиск</p></li>
+                <li id="newRoute"><p class="mainmenubtn">Построить маршрут</p></li>
+                <li id="timeRoute"><p class="mainmenubtn">Маршрут с ограничением времени</p></li>
+                <li id="placesofinterest"><p class="mainmenubtn">Достопримечательности на карте ВДНХ</p></li>
+                <li id="routeone"><p class="mainmenubtn">Маршрут 1: Метро ВДНХ - Главный вход ВДНХ</p></li>
+                <li id="routetwo"><p class="mainmenubtn">Маршрут 2: Главный вход ВДНХ - Каток ВДНХ</p></li>
+                <li id="routethree"><p class="mainmenubtn">Маршрут 3: Главный вход ВДНХ - Павильон Космос</p></li>
             </ul>
+
             <div id="map"></div>
         </div>
     </section>
-
     <section>
         <div class="container">
             <h1 class="down">Полезные ссылки на ВДНХ</h1>
@@ -68,20 +141,11 @@
                 <div class="events"><a href="https://vdnh.ru/events/" class="placestext">События</a></div>
                 <div class="routes"><a href="https://vdnh.ru/routes/" class="placestext">Маршруты</a></div>
             </div>
-
         </div>
     </section>
-
     <footer>
         <p class="footertext">©2023, Москва, ГБОУ школа № 2098. 10 класс "И".
             При использовании любых элементов данного сайта, необходимо указать ссылку на источник.</p>
     </footer>
-
-
-
-
-
-
-
 </body>
 </html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интерактивная карта</title>
+    <link type="text/css" href="{{ url_for('static', filename='css/style.css')}}" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=04fcaae6-825a-469a-86fe-eabc5755edd4&lang=ru_RU" type="text/javascript">
+    </script>
+    <script src="/static/script/script.js" type="text/javascript" defer></script>
+    <script src="/static/script/provider.js" type="text/javascript" defer></script>
+</head>
+<body>
+    <header id="header">
+        <div class="container">
+            <div class="nav">
+                <img class="schoollogo" src="/static/images/schoollogo.png" alt="логотип школы">
+                {% if g.user %}
+                    <button name="open-register-win" class="emailbutton">Добро пожаловать, <br>{{g.user.login}}</button>
+                {% else %}
+                <a href="/registration" class="regbutton">Регистрация</a>
+                <img class="loginimage" src="/static/images/loginimage.jpg" alt="логин">
+                <a href="/login" class="loginbutton">Войти</a>
+                {% endif %}
+            </div>
+        </div>
+
+        {% if not g.user %}
+            <div class="no_access">
+                <h1>Для доступа к данной странице войдите в аккаунт</h1>
+            </div>
+        {% else %}
+        <div class="access">
+            <h1>История построения маршрутов</h1>
+
+            <div class="viewbox" id="viewbox">
+<!--                <script>document.getElementById('viewbox').style.height = "800px"</script>-->
+                {% for elem in option %}
+                <div class="nextroute">
+                    <p class="viewboxtext">Старт: {{ elem.routepoints.split(', ')[0] }}</p>
+                    <p class="viewboxtext">Финиш: {{ elem.routepoints.split(', ')[1] }}</p>
+
+                </div>
+                {% endfor %}
+            </div>
+<!--            <ul class="menupoints" id="menupoints">-->
+<!--                {% for elem in option %}-->
+<!--                <li><p class="mainmenubtn">{{ elem.routepoints.split(', ')[0] }} - {{ elem.routepoints.split(', ')[1] }}</p></li>-->
+<!--                {% endfor %}-->
+<!--            </ul>-->
+        </div>
+        {% endif %}
+
+
+
+    </header>
+    <section>
+
+        <div class="container2">
+            <div id="map"></div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <h1 class="down">Полезные ссылки на ВДНХ</h1>
+            <div class="usefulllinks">
+                <div class="places"><a href="https://vdnh.ru/places/" class="placestext">Места</a></div>
+                <div class="events"><a href="https://vdnh.ru/events/" class="placestext">События</a></div>
+                <div class="routes"><a href="https://vdnh.ru/routes/" class="placestext">Маршруты</a></div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p class="footertext">©2023, Москва, ГБОУ школа № 2098. 10 класс "И".
+            При использовании любых элементов данного сайта, необходимо указать ссылку на источник.</p>
+    </footer>
+</body>
+</html>

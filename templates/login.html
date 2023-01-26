@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страница входа</title>
+    <link href="{{ url_for('static', filename='css/login.css')}}" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="login_win">
+        <div class="login_title_block">
+            <h1 class="login_title">Вход</h1>
+        </div>
+        <form method="post" class="login_form">
+            <input class="emailpswinput" type="email" placeholder="Логин или email" name="login">
+            <input class="emailpswinput" type="password" placeholder="Пароль" name="password">
+            <div class="flash_text">Пользователь с таким email не зарегистрирован. <br>
+                Пожалуйста, <a href="" class="reg_link">зарегистрируйтесь</a>.
+            </div>
+            <button type="submit" class="login_btn">Войти</button>
+            <button class="change_acc_btn">Сменить аккаунт</button>
+            <div class="another_func">
+                <a href="{{url_for('registration')}}"><button type="button" class="reg_btn">Регистрация</button></a>
+                <a href="{{url_for('change_password')}}"><button class="forgot_psw_btn" type="button">Забыли пароль?</button></a>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

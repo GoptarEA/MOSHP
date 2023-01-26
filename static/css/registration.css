@@ -1,195 +1,121 @@
+::-webkit-scrollbar {
+    width: 0;
+  }
+
 html, body {
-  background-color:  #1E1E1E;
-  height: 100%;
-  width: 100%;
-  font-family: 'Roboto', sans-serif;
-  overflow: hidden;
+    margin: 0px auto;
+    width: 100%;
+    height: 100%;
+    background-color: #1E1E1E;
+    font-family: 'Roboto', sans-serif;
 }
 
-.middle_part{
-    position: absolute;
+.reg_win {
+    margin: 0px auto;
+    margin-top: 50px;
     width: 800px;
-    height: 800px;
-    left: 30%;
-    top: 10%;
+    height: 960px;
+    padding-top: 59px;
 
-    background: #FFFFFF;
+    background-color: #FFFFFF;
     border-radius: 16px;
 }
 
-.registration {
-    position: absolute;
-    width: 384px;
+.reg_title_block {
+    margin: 0px 161px 34px 161px;
+    width: 478px;
     height: 64px;
-    left: 208px;
-    top: 59px;
+}
 
-    font-family: 'Arial';
+.reg_title {
+    margin-top: 0px;
     font-style: normal;
     font-weight: 700;
     font-size: 42px;
     line-height: 64px;
-    /* identical to box height, or 152% */
 
     text-align: center;
 
     color: #000000;
 }
 
-.logintext {
-    position: absolute;
-    width: 287px;
-    height: 41px;
-    left: 100px;
-    top: 173px;
-
-    font-family: 'Arial';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 36px;
-    /* or 150% */
-    color: #535564;
+.reg_form {
+    margin: 0px auto;
+    width: 800px;
 }
 
-
-.passtext {
-    position: absolute;
-    width: 287px;
-    height: 41px;
-    left: 100px;
-    top: 355px;
-
-    font-family: 'Arial';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 36px;
-    /* or 150% */
-    color: #535564;
-}
-
-.email {
+.forminput {
     box-sizing: border-box;
-
-    position: absolute;
+    margin: 25px 100px 0px 100px;
     width: 600px;
     height: 80px;
-    left: 100px;
-    top: 232px;
+    padding-left: 31px;
 
     background: #FFFFFF;
     border: 3px solid #ECEDF1;
     border-radius: 16px;
 
-    font-size: 30px;
-    padding-left: 30px;
-
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
 }
 
-.password {
-    box-sizing: border-box;
-
-    position: absolute;
+.reg_submit {
+    margin: 19px 100px 0px 100px;
     width: 600px;
-    height: 80px;
-    left: 100px;
-    top: 409px;
-
+}
+.check_btn {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
     background: #FFFFFF;
-    border: 3px solid #ECEDF1;
+
+    border: 1px solid #3F4192;
     border-radius: 16px;
 
-    font-size: 30px;
-    padding-left: 30px;
-
+    cursor: pointer;
 }
 
-.small_text {
-    position: absolute;
-    width: 550px;
+.reg_submit_text {
+    margin-left: 28px;
+    display: inline-block;
+    width: 513px;
     height: 44px;
-    left: 131px;
-    top: 527px;
 
-    font-family: 'Arial';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 22px;
-    /* or 138% */
-
 
     color: #535564;
-
 }
 
-.entry_button {
-
-    position: absolute;
+.reg_btn {
+    margin: 70px 100px 0px 100px;
     width: 600px;
     height: 80px;
-    left: 100px;
-    top: 614px;
-
 
     background: #3F4192;
     border-radius: 16px;
-    border: 0px;
+    border-width: 0px;
 
-
-    font-family: 'Arial';
     font-style: normal;
     font-weight: 400;
     font-size: 36px;
     line-height: 42px;
-    /* or 117% */
-
-    text-align: center;
 
     color: #FFFFFF;
-
-    cursor: pointer;
 
     transition: 0.2s;
     transition-timing-function: ease-in-out;
 
+    cursor: pointer;
 }
 
+.reg_btn:hover {
+    background: #2c2d66;
 
-@keyframes fade {
- from {
-  opacity: 1;
-  }
-  to {
-   opacity: 0;
-  }
-}
-
-.flash {
-    position: absolute;
-    width: 600px;
-    height: 80px;
-    left: 100px;
-    top: 800px;
-     font-family: 'Arial';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 36px;
-    line-height: 42px;
-    /* or 117% */
-
-    text-align: center;
-
-    color: red;
-
-    animation: fade 4s ease forwards;
-}
-
-
-
-
-.entry_button:hover {
-    background: #3F41FF;
+    transition: 0.2s;
     transition-timing-function: ease-in-out;
 }

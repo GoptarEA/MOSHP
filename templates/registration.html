@@ -2,27 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Регистрация</title>
-
-    <link type="text/css" href="{{ url_for('static', filename='css/registration.css')}}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='css/registration.css')}}" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="middle_part">
-        <div class="registration">Зарегистрируйтесь</div>
-        <div class="logintext">Email</div>
-        <div class="passtext">Пароль</div>
-        <form method="post">
-            <input class="email" maxlength="30" type="text" placeholder="Введите Email" name="email">
-            <input class="password" maxlength="20" type="password" size="60" placeholder="Пароль" name="password">
-            <div class="small_text">Мы не собираем и не передаём ваши персональные данные. Регистрация необходима для
-                сохранения маршрутов в избранное.</div>
-            <a href="main_page"><button class= "entry_button" name="entry_button">Войти</button></a>
-
-            {% for msg in get_flashed_messages() %}
-            <div class="flash">{{msg}}</div>
-            {% endfor %}
+    <div class="reg_win">
+        <div class="reg_title_block">
+            <h1 class="reg_title">Зарегистрируйтесь</h1>
+        </div>
+        <form method="post" class="reg_form">
+            <input class="forminput" type="text" name="login" placeholder="Придумайте логин">
+            <input class="forminput" type="text" name="name" placeholder="Введите ваши фамилию и имя">
+            <input class="forminput" type="email" name="email" placeholder="Введите email">
+            <input class="forminput" type="password" name="password" placeholder="Придумайте пароль">
+            <input class="forminput" type="password" name="repeatpassword" placeholder="Повторите пароль">
+            <div class="reg_submit">
+                <input class="check_btn" type="checkbox" name="check_policy">
+                <p class="reg_submit_text">Регистрируясь в сервисе, я принимаю
+                    <a href="{{url_for('terms')}}">условия соглашения</a>
+                    и <a href="{{url_for('politics')}}">политику конфиденциальности</a>.
+                </p>
+            </div>
+            <button class="reg_btn" type="submit">Зарегистрироваться</button>
         </form>
     </div>
 </body>
 </html>
-

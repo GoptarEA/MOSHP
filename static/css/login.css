@@ -1,0 +1,212 @@
+::-webkit-scrollbar {
+    width: 0;
+  }
+
+html, body {
+    margin: 0px auto;
+    width: 100%;
+    height: 100%;
+    background-color: #1E1E1E;
+    overflow: hidden;
+}
+
+.login_win {
+    margin: 50px auto 0px;
+    width: 800px;
+    height: 700px;
+    padding-top: 59px;
+
+    background-color: #FFFFFF;
+    border-radius: 16px;
+}
+
+.login_title_block {
+    margin: 0px 161px 34px 161px;
+    width: 478px;
+    height: 64px;
+}
+
+.login_title {
+    margin-top: 0px;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 64px;
+
+    text-align: center;
+
+    color: #000000;
+}
+
+.login_form {
+    margin: 0px auto;
+    width: 800px;
+}
+
+.emailpswinput {
+    box-sizing:border-box;
+    margin: 19px 100px 0px 100px;
+    width: 600px;
+    height: 80px;
+    padding-left: 31px;
+
+    background: #FFFFFF;
+    border: 3px solid #ECEDF1;
+    border-radius: 16px;
+
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+}
+
+.flash_text {
+    margin: 16px 100px 0px 100px;
+    width: 600px;
+    height: 60px;
+
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 28px;
+
+    color: #F03562;
+}
+
+.login_btn {
+    margin: 15px 100px 0px 100px;
+    width: 600px;
+    height: 80px;
+
+    background: #3F4192;
+    border-radius: 16px;
+    border-width: 0px;
+
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 42px;
+
+    color: #FFFFFF;
+
+    transition: 0.2s;
+    transition-timing-function: ease-in-out;
+
+    cursor: pointer;
+}
+
+.login_btn:hover {
+    background: #2c2d66;
+
+    transition: 0.2s;
+    transition-timing-function: ease-in-out;
+}
+
+.change_acc_btn {
+    margin: 15px 100px 0px 100px;
+    width: 600px;
+    height: 80px;
+
+    background-color: #FFFFFF;
+    color: #3F4192;
+
+    border: 1px solid #3F4192;
+    border-radius: 16px;
+
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 42px;
+    text-align: center;
+
+    transition: 0.2s;
+    transition-timing-function: ease-in-out;
+
+    cursor: pointer;
+}
+
+.change_acc_btn:hover {
+    background-color: #3F4192;
+    color: #FFFFFF;
+    border: 3px solid #ffffff;
+
+    transition: 0.2s;
+    transition-timing-function: ease-in-out;
+}
+
+.another_func {
+    margin: 20px 130px 0px 130px;
+    clear: both;
+    width: 539px;
+    height: 41px;
+}
+
+.reg_btn {
+    /* margin: 17px 130px 0px 130px; */
+    /* width: 539px; */
+    height: 41px;
+    display: inline-block;
+    float: left;
+
+
+    background-color: #FFFFFF;
+    border-width: 0px;
+
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+
+    color: #3F4192;
+
+    transition: 0.2s;
+    transition-timing-function: ease-in-out;
+
+    cursor: pointer;
+}
+
+.reg_btn:hover {
+    text-decoration: underline;
+    color: #2c2d66;
+
+    transition: 0.2s;
+    transition-timing-function: ease-in-out;
+}
+
+.forgot_psw_btn {
+    /* margin: 17px 130px 0px 130px; */
+    /* width: 539px; */
+    height: 41px;
+    display: inline-block;
+    float: right;
+
+    background-color: #FFFFFF;
+    border-width: 0px;
+
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+
+    color: #3F4192;
+
+    transition: 0.2s;
+    transition-timing-function: ease-in-out;
+
+    cursor: pointer;
+}
+
+.forgot_psw_btn:hover {
+    text-decoration: underline;
+    color: #2c2d66;
+
+    transition: 0.2s;
+    transition-timing-function: ease-in-out;
+}

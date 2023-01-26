@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Тестовая страница отправки данных</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+<body>
+
+<script type=text/javascript>
+$SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+$(function() {
+$('a#calculate').bind('mousemove', function() {
+$.getJSON($SCRIPT_ROOT + '/primer', {
+a: $('input[name="a"]').val(),
+b: $('input[name="b"]').val()
+}, function(data) {
+$("#result").text(data.result);
+});
+return false;
+});
+});
+</script>
+<h1>jQuery Example</h1>
+<p><input type=text size=5 name=a> +
+<input type=text size=5 name=b> =
+<span id=result>?</span>
+<p><a href=# id=calculate>calculate server side</a>
+</body>
+</html>
