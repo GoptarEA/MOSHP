@@ -38,7 +38,10 @@
             <h1>История построения маршрутов</h1>
 
             <div class="viewbox" id="viewbox">
-<!--                <script>document.getElementById('viewbox').style.height = "800px"</script>-->
+                <script>
+                    document.getElementById('viewbox').style.height = "700px"
+                    document.getElementById('viewbox').style.marginBottom = "50px"
+                </script>
                 {% for elem in option %}
                 <div class="nextroute">
                     <p class="viewboxtext">Старт: {{ elem.routepoints.split(', ')[0] }}</p>
@@ -47,11 +50,6 @@
                 </div>
                 {% endfor %}
             </div>
-<!--            <ul class="menupoints" id="menupoints">-->
-<!--                {% for elem in option %}-->
-<!--                <li><p class="mainmenubtn">{{ elem.routepoints.split(', ')[0] }} - {{ elem.routepoints.split(', ')[1] }}</p></li>-->
-<!--                {% endfor %}-->
-<!--            </ul>-->
         </div>
         {% endif %}
 
